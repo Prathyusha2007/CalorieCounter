@@ -1,0 +1,41 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox
+
+root = tk.Tk()
+root.geometry("500x200")
+
+food=["Apple","Banana","Mango","Chips","Pop Corn"]
+
+#greet = tk.Label(root,text="Welcome to the Calorie Counter")
+#greet.config(font=("Berlin Sans FB",22))
+#greet.grid(row=1,column=1)
+
+calorie_label=tk.Label(root,text="Select your Food Item: ")
+calorie_label.config(font=("Calibri",12))
+calorie_label.grid(row=2,column=1)
+
+cal_text=tk.StringVar()
+cal_box=ttk.Combobox(root,width=27,textvariable=cal_text)
+cal_box['values']=food
+cal_box.grid(row=2,column=2)
+
+def submit():
+  if cal_text.get()=="Apple":
+    messagebox.showinfo("Calorie Counter","Apple has 53 calories")
+  elif cal_text.get()=="Banana":
+    messagebox.showinfo("Calorie Counter","Banana has 89 calories")
+  elif cal_text.get()=="Mango":
+    messagebox.showinfo("Calorie Counter","Mango has 60 calories")
+  elif cal_text.get()=="Chips":
+    messagebox.showinfo("Calorie Counter","Chips have 536 calories")
+  elif cal_text.get()=="Popcorn":
+    messagebox.showinfo("Calorie Counter","PopCorn has 375 calories")
+  else:
+    pass
+
+btn=tk.Button(root,text="Submit",command=submit)
+btn.config(font=("Berlin Sans FB",22))
+btn.grid(row=3,column=2)
+
+root.mainloop()
